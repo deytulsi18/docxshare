@@ -66,11 +66,11 @@ uploadBtn.addEventListener("click", () => {
   uploadFile();
 });
 downloadBtn.addEventListener("click", () => {
-  downloadFile();
   Toast.fire({
     icon: "info",
     title: "LOADING \nPlease wait...",
   });
+  downloadFile();
 });
 
 let saveMsg = (fileUrl) => {
