@@ -31,14 +31,59 @@
     --glass-4: hsla(0, 0%, 100%, 0.4);
     --glass-5: hsla(0, 0%, 100%, 0.5);
 
-    --glass: hsla(0, 0%, 100%, 0.25)
+    --glass: hsla(0, 0%, 100%, 0.25);
+    --glass-shadow: hsla(0, 0%, 0%, 0.25);
 }
 
-* {
+/* Global Styles */
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    /* outline: 2px solid red; */
+}
+
+.prevent-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+/* text selection color */
+
+::-moz-selection {
+    background: hsla(0, 71%, 73%, 0.75);
+    color: black;
+}
+
+::selection {
+    background: hsla(0, 71%, 73%, 0.75);
+    color: black;
+}
+
+a::-moz-selection {
+    background-color: var(--yellow);
+    color: black;
+}
+
+a::selection {
+    background-color: var(--yellow);
+    color: black;
+}
+
+/* basic HTML elements styles */
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -56,9 +101,25 @@ a {
 }
 
 h1 {
-    font-family: "Montserrat 500";
+    font-family: "Montserrat 500", sans-serif;
     letter-spacing: 3px;
     font-size: 2.75rem;
+}
+
+.glass-border {
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.shadow {
+    box-shadow: 1px 1px 10px 1px hsla(0, 0%, 0%, 0.25);
+}
+
+.bold-text {
+    font-family: "Montserrat 500", sans-serif !important;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 header h1 {
@@ -118,6 +179,7 @@ footer {
 
 h2 {
     text-shadow: 0 0 1px hsla(0, 0%, 0%, 1);
+    padding-bottom: 0.5rem;
 }
 
 .container-one {
@@ -163,9 +225,9 @@ h2 {
 }
 
 #selected-file-name {
-    font-family: "Montserrat 500", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: large;
-
+    font-size: 1.25rem;
     padding: 1rem;
     background-color: var(--glass);
     padding: 1rem;
@@ -196,14 +258,11 @@ h2 {
 
 .file-download-input-div {
     background-color: var(--glass);
-
     padding: 1rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-
 }
 
 .file-download-container input {
@@ -215,14 +274,17 @@ h2 {
     width: 100%;
     color: #333;
     background-color: var(--glass);
+    font-family: "Montserrat 500", sans-serif;
 }
 
 ::placeholder {
+    font-family: "Montserrat", sans-serif;
     color: #333;
     opacity: 1;
 }
 
 :-ms-input-placeholder {
+    font-family: "Montserrat", sans-serif;
     color: #333;
 }
 
@@ -250,13 +312,18 @@ h2 {
 }
 
 .upload-btn {
-    background-color: hsl(35, 85%, 59%);
     background-color: var(--glass-5);
+}
+
+.upload-btn:active {
+    background-color: hsl(35, 85%, 70%);
 
 }
 
 .download-btn {
-    background-color: hsl(120, 63%, 67%);
     background-color: var(--glass-5);
+}
 
+.download-btn:active {
+    background-color: hsl(120, 63%, 70%);
 }

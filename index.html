@@ -24,26 +24,27 @@
 
         <div class="main">
 
-            <div class="file-upload-div">
-                <h2>Upload your file</h2>
+            <div class="file-upload-div glass-border shadow">
+                <h2>Upload your file :</h2>
                 <div class="file-upload-container">
-                    <div class="file-upload-input-div" id="dropContainer">
+                    <div class="file-upload-input-div glass-border shadow" id="dropContainer">
                         <input type="file" name="file-upload" id="file-upload">
-                        <span id="selected-file-name">click here to upload a file</span>
+                        <span id="selected-file-name"><span class="bold-text underline">click</span> or <span
+                                class="bold-text underline">drag n drop</span> here</span>
                     </div>
                 </div>
-                <div class="btn upload-btn">
+                <div class="btn upload-btn prevent-select">
                     Upload
                 </div>
             </div>
-            <div class="file-download-div">
-                <h2>Download your file</h2>
+            <div class="file-download-div glass-border shadow">
+                <h2>Download your file :</h2>
                 <div class="file-download-container">
-                    <div class="file-download-input-div">
-                        <input type="text" name="file-id" id="file-id" placeholder="Enter file ID">
+                    <div class="file-download-input-div glass-border shadow">
+                        <input type="text" name="file-id" id="file-id" placeholder="enter file ID here">
                     </div>
                 </div>
-                <button class="btn download-btn">
+                <button class="btn download-btn prevent-select">
                     Download
                 </button>
             </div>

@@ -35,5 +35,11 @@ selectFileDiv.addEventListener('click', () => {
 selectedFile.addEventListener('change', () => {
     if (selectedFile.files.length > 0) {
         displayFileName.innerText = selectedFile.files[0].name;
+
+        const isBoldText = displayFileName.classList.contains('bold-text');
+
+        if (!isBoldText) {
+            displayFileName.classList.add('bold-text');
+        }
     }
 })
