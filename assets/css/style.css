@@ -90,7 +90,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #eee;
     background-color: #888;
-    background-color: #888;
+    background-color: hsl(56, 60%, 70%);
     color: #333;
     padding: 0.5rem;
 }

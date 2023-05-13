@@ -118,6 +118,11 @@ let uploadFile = () => {
             // console.log(snapshot)
             loadingDiv.style.display = 'block';
             uploadBtn.style.display = 'none';
+
+            let progressStatus = (snapshot.bytesTransferred / snapshot.totalBytes * 100).toFixed(2);
+
+            document.querySelector("#upload-progress").innerHTML = progressStatus;
+
         }, (error) => {
             console.log('Error : ', error.message);
             alert('Upload failed! something went wrong.');
@@ -167,13 +172,16 @@ let downloadFile = () => {
                             })
                             .catch((error) => { console.log(error) });
                         // console.log('file deleted from storage')
-                    }, 2500);
+                    }, 1250);
                 }
             })
         })
 
-        if (!fileFound) {
-            alert('file not found!');
-        }
+        setTimeout(() => {
+            if (!fileFound) {
+                alert('file not found!');
+            }
+        }, 1500);
+
     }
 }
