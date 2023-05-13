@@ -33,9 +33,15 @@
                                 class="bold-text underline">drag n drop</span> here</span>
                     </div>
                 </div>
-                <div class="btn upload-btn prevent-select">
+                <div class="btn upload-btn prevent-select" id="upload">
                     Upload
                 </div>
+                <div class="loading-div glass-border shadow">
+                    <p>Loading...</p>
+                </div>
+            </div>
+            <div class="file-id-div glass-border shadow">
+                <p class="file-id-box">File ID : <span id="file-id-text">??????</span></p>
             </div>
             <div class="file-download-div glass-border shadow">
                 <h2>Download your file :</h2>
@@ -44,7 +50,7 @@
                         <input type="text" name="file-id" id="file-id" placeholder="enter file ID here">
                     </div>
                 </div>
-                <button class="btn download-btn prevent-select">
+                <button class="btn download-btn prevent-select" id="download">
                     Download
                 </button>
             </div>
@@ -102,6 +108,10 @@
         document.querySelector('#date').innerHTML = getDateString();
     </script>
 
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase.js"></script>
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/nanoid.js"></script>
     <script src="./assets/js/index.js"></script>
 
 </body>

@@ -201,7 +201,7 @@ h2 {
     border-radius: 10px;
     margin: 1rem auto;
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .file-upload-container {
@@ -318,7 +318,6 @@ h2 {
 
 .upload-btn:active {
     background-color: hsl(35, 85%, 70%);
-
 }
 
 .download-btn {
@@ -327,4 +326,32 @@ h2 {
 
 .download-btn:active {
     background-color: hsl(120, 63%, 70%);
+}
+
+.file-id-div {
+    background-color: var(--glass-3);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    display: none;
+}
+
+.file-id-div span {
+    font-family: "Montserrat 500", sans-serif;
+    letter-spacing: 1px;
+}
+
+.loading-div {
+    background-color: var(--glass-3);
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    width: fit-content;
+    display: none;
 }
