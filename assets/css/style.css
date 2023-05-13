@@ -233,8 +233,8 @@ h2 {
     padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
-    width: max-content;
     width: 100%;
+    max-width: 550px;
 }
 
 #file-upload {
