@@ -56,6 +56,7 @@ const Toast = Swal.mixin({
 
 const uploadBtn = document.querySelector("#upload");
 const downloadBtn = document.querySelector("#download");
+const deleteBtn = document.querySelector("#delete");
 const fileIdDiv = document.querySelector(".file-id-div");
 const fileIdText = document.querySelector("#file-id-text");
 const loadingDiv = document.querySelector(".loading-div");
@@ -71,6 +72,13 @@ downloadBtn.addEventListener("click", () => {
     title: "LOADING \nPlease wait...",
   });
   downloadFile();
+});
+deleteBtn.addEventListener("click", () => {
+  Toast.fire({
+    icon: "info",
+    title: "LOADING \nPlease wait...",
+  });
+  deleteFile();
 });
 
 let saveMsg = (fileUrl) => {
@@ -210,6 +218,48 @@ let downloadFile = () => {
           fileFound = true;
           window.open(childData.url, "_blank");
 
+          deleteBtn.style.display = "block";
+        }
+      });
+    });
+
+    setTimeout(() => {
+      if (!fileFound) {
+        Swal.fire({
+          icon: "question",
+          confirmButtonColor: "#004c8a",
+          confirmButtonText: "OK",
+          title: "File not found!",
+          text: "Your requested file does not exist.",
+        });
+      }
+    }, 1500);
+  }
+};
+
+const deleteFile = () => {
+  const fileId = document.querySelector("#file-id");
+
+  if (fileId.value == "") {
+    Swal.fire({
+      icon: "info",
+      confirmButtonColor: "#004c8a",
+      confirmButtonText: "OK",
+      title: "Enter file ID!",
+      text: "You need to enter file ID before download.",
+    });
+  } else {
+    const fileUniqueId = fileId.value;
+
+    let ref = firebase.database().ref("docs");
+    let fileFound = false;
+
+    ref.on("value", (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        let childData = childSnapshot.val();
+        if (childData.number == fileUniqueId) {
+          fileFound = true;
+
           // console.log('file deleted from database')
           setTimeout(() => {
             let storageRef = firebase.storage().refFromURL(childData.url);
@@ -235,6 +285,15 @@ let downloadFile = () => {
           confirmButtonText: "OK",
           title: "File not found!",
           text: "Your requested file does not exist.",
+        });
+      } else {
+        Swal.fire({
+          icon: "success",
+          confirmButtonText: "OK",
+          title: "File deleted!",
+          text: "Your file is deleted successfully.",
+          confirmButtonAriaLabel: "Thumbs up, OK!",
+          confirmButtonColor: "#3bb300",
         });
       }
     }, 1500);
